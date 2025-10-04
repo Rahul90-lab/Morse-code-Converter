@@ -1,0 +1,78 @@
+:root{
+  --bg-dark: #020214;
+  --bg-mid: #07102a;
+  --neon-1: #7cf2ff;
+  --neon-2: #a67cff;
+  --muted: rgba(225,235,255,0.6);
+  --glass: rgba(255,255,255,0.04);
+  --card-glow: 0 8px 40px rgba(124,92,255,0.12);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: #e9f3ff; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(124,92,255,0.06), transparent),
+              radial-gradient(900px 400px at 90% 80%, rgba(124,200,255,0.04), transparent),
+              linear-gradient(180deg,var(--bg-dark),var(--bg-mid));
+  min-height:100vh; overflow-x:hidden;
+}
+
+.bg-grid{
+  position:fixed;inset:0;pointer-events:none;mix-blend-mode:overlay;opacity:0.6;
+  background-image: linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px),
+                    linear-gradient(0deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 60px 60px, 60px 60px; transform:translateZ(0);
+}
+
+.container{max-width:1040px;margin:0 auto;padding:28px}
+.site-header{padding:22px 0}
+.brand{font-family:Orbitron,Inter, sans-serif;font-weight:700;margin:0;letter-spacing:1px;font-size:32px;display:flex;align-items:baseline;gap:8px}
+.brand .logo{color:var(--neon-1);text-shadow:0 0 18px rgba(124,242,255,0.25),0 2px 8px rgba(102,60,170,0.12)}
+.brand .dim{color:rgba(255,255,255,0.76);font-weight:400}
+.tagline{color:var(--muted);margin-top:6px;font-size:14px}
+
+.card{backdrop-filter: blur(6px) saturate(120%); background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.008)); border-radius:14px; padding:18px; margin-bottom:18px; border:1px solid rgba(255,255,255,0.04); box-shadow: var(--card-glow);}
+
+.io-card textarea, .output-card textarea{width:100%;min-height:140px;padding:14px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);background:linear-gradient(180deg, rgba(0,0,0,0.18), rgba(255,255,255,0.02));color:inherit;resize:vertical;font-family:inherit}
+.output-card textarea{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace}
+
+.controls{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.controls label{font-size:13px;color:var(--muted);margin-right:8px}
+.controls select{background:transparent;color:inherit;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);min-width:160px}
+.controls .control-right button{margin-left:8px}
+
+.actions{display:flex;gap:12px;margin-top:12px}
+.btn-neon{background:linear-gradient(90deg,var(--neon-2),var(--neon-1));border:none;color:#021; padding:10px 14px;border-radius:10px;cursor:pointer;font-weight:700;box-shadow:0 6px 24px rgba(124,92,255,0.12);display:inline-flex;align-items:center;gap:8px}
+.btn-neon span{display:inline-block;padding:6px;border-radius:6px;background:rgba(255,255,255,0.04);backdrop-filter:blur(2px)}
+.btn-neon.primary{box-shadow:0 10px 36px rgba(124,92,255,0.28), 0 2px 0 rgba(0,0,0,0.32)}
+.btn-neon:active{transform:translateY(1px)}
+
+.example-grid{display:flex;gap:10px;flex-wrap:wrap}
+.example{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:8px 10px;color:var(--muted);font-weight:700;border-radius:8px}
+
+.help{margin-top:12px;color:var(--muted);font-size:13px}
+.site-footer{padding:18px 0;color:var(--muted);text-align:center}
+
+.footer-row{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.foot-left{color:var(--muted)}
+.dev-link{color:var(--neon-1);text-decoration:none;font-weight:700;display:inline-flex;align-items:center;padding:6px 8px;border-radius:8px}
+.dev-link:hover{filter:brightness(1.1);text-shadow:0 6px 20px rgba(124,242,255,0.12)}
+
+/* layout */
+@media (min-width:880px){
+  main.container{display:grid;grid-template-columns:1fr 380px;gap:20px;align-items:start}
+  .io-card{grid-column:1}
+  .output-card{grid-column:2}
+  .examples{grid-column:1 / -1}
+}
+
+@media (max-width:480px){
+  .container{padding:14px}
+  .brand{font-size:22px}
+  .btn-neon{padding:8px 10px}
+}
+
+/* subtle hover neon */
+.btn-neon:hover{filter:brightness(1.06) drop-shadow(0 6px 18px rgba(124,92,255,0.18))}
