@@ -20,27 +20,3 @@ python3 -m http.server 8000
 
 2. Type or paste text or Morse into the Input box. You can force encode/decode using the mode selector or use Auto-detect.
 
-Commands to push to GitHub
-
-If you don't already have a repository on GitHub, create one (e.g. `MorseLab`). Then run the following from this project folder:
-
-```bash
-git init
-git add .
-git commit -m "Initial commit: MorseLab static site"
-# replace URL with your repo URL
-git remote add origin https://github.com/<your-username>/MorseLab.git
-git branch -M main
-git push -u origin main
-```
-
-Hosting via GitHub Pages
-
-You can host the site for free with GitHub Pages. In your repository settings, enable Pages and select the `main` branch and `/ (root)` folder as the source. The site will be available at `https://<your-username>.github.io/MorseLab/` after a few minutes.
-
-Notes & Next steps
-
-- The converter supports letters, numbers, and common punctuation. Unknown characters are ignored in encoding/decoding.
-- I can add a CI deploy workflow (GitHub Actions) to auto-deploy to `gh-pages`, or add a build step if you want bundling.
-
-Enjoy — tell me if you want a custom theme, favicon, or a GitHub Actions workflow to auto-deploy.
